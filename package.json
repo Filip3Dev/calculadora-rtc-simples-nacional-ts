@@ -9,7 +9,7 @@
   },
   "packageManager": "pnpm@10.28.2",
   "scripts": {
-    "build": "pnpm --filter @sn/core build && pnpm --filter @sn/api build",
+    "build": "pnpm --filter calculadora-simples-nacional-core build && pnpm --filter @sn/api build",
     "test": "pnpm -r test",
     "db:build": "tsx packages/core/scripts/build-db.ts",
     "dev:api": "pnpm --filter @sn/api dev",
