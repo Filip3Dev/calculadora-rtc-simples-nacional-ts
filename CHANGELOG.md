@@ -4,6 +4,13 @@ Todas as mudanças notáveis deste projeto serão documentadas aqui.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e o projeto adere a [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.1.1] — 2026-11-19
+
+### Adicionado
+
+- **Upstream tracking**: workflow diário (09:00 BRT) vigia os repositórios oficiais (simples-nacional + flyway do regime-regular) — movimento abre
+  issue automática (label `upstream`) com diff e passos de sincronização; migrações novas geram **PR automático** com os SQLs para o CI validar. Probe do piloto oficial reporta dados da nuvem ainda não publicados (hoje: V0073 vs V0059 público).
+
 ## [0.1.0] — 2026-11-19
 
 ### Adicionado
