@@ -16,7 +16,7 @@ const PORT = 8080;
 const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000;
 
 /** Nome estável → o hash determinístico garante uma única instância global. */
-const INSTANCE_NAME = "calculadora-sn-v1"; // bump: força container novo (a instância antiga persiste até o timeout)
+const INSTANCE_NAME = "calculadora-sn-v2"; // bump: força container novo (a instância antiga persiste até o timeout)
 
 /** Sonda de prontidão: GET leve (1 query SQLite) que valida servidor + banco. */
 const HEALTH_PATH = "/api/versao";
