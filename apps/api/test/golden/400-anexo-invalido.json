@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades?data=2027-01-01&anexos=I,X",
+    "body": null
+  },
+  "status": 400,
+  "contentType": "application/problem+json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "type": "about:blank",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Anexo inválido: 'X'. Valores aceitos: I, II, III, IV, V.",
+    "instance": "/api/calculadora/simples-nacional/atividades"
+  }
+}

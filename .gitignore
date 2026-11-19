@@ -1,0 +1,22 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+*.tsbuildinfo
+
+# Banco gerado por pnpm db:build (não versionar)
+db/*.db
+db/*.db-journal
+
+# Ambientes
+.env
+.env.local
+
+# Editor/OS
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log

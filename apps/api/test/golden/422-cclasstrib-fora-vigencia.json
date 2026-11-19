@@ -1,0 +1,52 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/calculadora/observabilidade/simples-nacional",
+    "body": {
+      "id": "abc",
+      "versao": "2.0.0",
+      "data": "2027-03-15",
+      "tpDoc": "55",
+      "CRT": "1",
+      "itens": [
+        {
+          "numero": 1,
+          "cAtivSN": "01",
+          "cClassTrib": "220001",
+          "baseCalculo": "1000.00",
+          "valorImpostoSeletivo": "0.00",
+          "pIBSSN": "1.25",
+          "pCBSSN": "2.75"
+        }
+      ]
+    }
+  },
+  "status": 200,
+  "contentType": "application/json",
+  "headers": {
+    "appVersion": "0.0.6",
+    "dbVersion": "V0059"
+  },
+  "body": {
+    "oper": {
+      "data": "2027-03-15",
+      "tpDoc": "55",
+      "CRT": "1"
+    },
+    "objetos": [
+      {
+        "nObj": 1,
+        "estadoItem": "INCONSISTENCIA_ENTRADA",
+        "erros": [
+          {
+            "type": "http://localhost/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-021",
+            "title": "cClassTrib desconhecido ou fora de vigência",
+            "code": "VSN-021",
+            "pointer": "#/itens/0/cClassTrib",
+            "detail": "O cClassTrib '220001' não existe ou não está vigente na data '2027-03-15': o tpRBSN não pôde ser determinado."
+          }
+        ]
+      }
+    ]
+  }
+}

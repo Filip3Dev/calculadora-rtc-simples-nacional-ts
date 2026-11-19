@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades?data=01/01/2027",
+    "body": null
+  },
+  "status": 400,
+  "contentType": "application/problem+json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "type": "http://localhost/errors/tipo-argumento-invalido",
+    "title": "Tipo de argumento inválido",
+    "status": 400,
+    "detail": "Parâmetro inválido [data: 01/01/2027] ",
+    "instance": "/api/calculadora/simples-nacional/atividades",
+    "timestamp": "<TS>",
+    "errors": [
+      {
+        "title": "Tipo de argumento inválido",
+        "pointer": "#/data",
+        "detail": "Parâmetro inválido [data: 01/01/2027]"
+      }
+    ]
+  }
+}

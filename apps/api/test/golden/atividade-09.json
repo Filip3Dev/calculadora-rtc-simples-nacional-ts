@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades/09?data=2027-01-01",
+    "body": null
+  },
+  "status": 200,
+  "contentType": "application/json",
+  "headers": {
+    "appVersion": "0.0.6",
+    "dbVersion": "V0059"
+  },
+  "body": {
+    "codigo": "09",
+    "ordem": 9,
+    "descricao": "Prestação de serviços — Sujeitos ao Fator \"R\"",
+    "anexoSemFatorR": "III",
+    "anexoComFatorR": "V",
+    "sujeitaFatorR": true,
+    "rotuloAnexo": "III ou V",
+    "rotuloCurtoAnexo": "III ou V",
+    "disponivel": true,
+    "anexosFaltantes": [],
+    "modoFatorR": "OPCIONAL",
+    "tpDocsAdmissiveis": [
+      "91"
+    ]
+  }
+}

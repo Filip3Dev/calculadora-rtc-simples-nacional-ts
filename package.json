@@ -1,0 +1,23 @@
+{
+  "name": "calculadora-rtc-simples-nacional-ts",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Porte TypeScript da Calculadora de Tributos do Simples Nacional (LC 123/2006, LC 214/2025, NT 2026.005) — API NestJS + playground, paridade estrita com a API oficial da Receita Federal",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.28.2",
+  "scripts": {
+    "build": "pnpm --filter @sn/core build && pnpm --filter @sn/api build",
+    "test": "pnpm -r test",
+    "db:build": "tsx packages/core/scripts/build-db.ts",
+    "dev:api": "pnpm --filter @sn/api dev",
+    "dev:web": "pnpm --filter @sn/playground dev",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.0"
+  }
+}

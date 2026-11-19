@@ -1,0 +1,28 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades",
+    "body": null
+  },
+  "status": 400,
+  "contentType": "application/problem+json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "type": "http://localhost/errors/parametro-obrigatorio-ausente",
+    "title": "Parâmetro obrigatório ausente",
+    "status": 400,
+    "detail": "O parâmetro obrigatório 'data' (LocalDate) não foi informado.",
+    "instance": "/api/calculadora/simples-nacional/atividades",
+    "timestamp": "<TS>",
+    "errors": [
+      {
+        "title": "Parâmetro obrigatório ausente",
+        "pointer": "#/data",
+        "detail": "O parâmetro obrigatório 'data' (LocalDate) não foi informado."
+      }
+    ]
+  }
+}

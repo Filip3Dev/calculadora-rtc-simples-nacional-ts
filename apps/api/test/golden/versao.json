@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/versao",
+    "body": null
+  },
+  "status": 200,
+  "contentType": "application/json",
+  "headers": {
+    "appVersion": "0.0.6",
+    "dbVersion": "V0059"
+  },
+  "body": {
+    "versaoApp": "0.0.6",
+    "versaoDb": "V0059",
+    "descricaoVersaoDb": "Habilitação de 820 para NFSe.",
+    "dataVersaoDb": "2026-09-30",
+    "ambiente": "offline"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/calculadora/observabilidade/simples-nacional",
+    "body": {
+      "id": "abc",
+      "versao": "2.0.0",
+      "data": "2027-03-15",
+      "tpDoc": "55",
+      "CRT": "3",
+      "itens": [
+        {
+          "numero": 1,
+          "cAtivSN": "01",
+          "cClassTrib": "000001",
+          "baseCalculo": "1000.00",
+          "valorImpostoSeletivo": "0.00",
+          "pIBSSN": "1.25",
+          "pCBSSN": "2.75"
+        }
+      ],
+      "tpRegimeIBSCBS": "2"
+    }
+  },
+  "status": 200,
+  "contentType": "application/json",
+  "headers": {
+    "appVersion": "0.0.6",
+    "dbVersion": "V0059"
+  },
+  "body": {
+    "oper": {
+      "data": "2027-03-15",
+      "tpDoc": "55",
+      "CRT": "3",
+      "tpRegimeIBSCBS": "2"
+    },
+    "objetos": [
+      {
+        "nObj": 1,
+        "estadoItem": "CALCULADO",
+        "tribCalc": {
+          "vRBSNitem": "1000.00",
+          "tpRBSN": 1,
+          "tpRBSNDescricao": "Receita bruta - interna",
+          "vBC": "1000.00",
+          "pIBSSN": "1.25",
+          "vIBSSN": "0.00",
+          "vIBSPendSusp": "12.50",
+          "pCBSSN": "2.75",
+          "vCBSSN": "0.00",
+          "vCBSPendSusp": "27.50",
+          "IS": {
+            "valor": "0.00"
+          },
+          "totalItem": "0.00"
+        }
+      }
+    ],
+    "total": {
+      "vRBSNtot": "1000.00",
+      "vBC": "1000.00",
+      "vIBSSNtot": "0.00",
+      "vIBSSNtotPendSusp": "12.50",
+      "vCBSSNtot": "0.00",
+      "vCBSSNtotPendSusp": "27.50",
+      "totalIs": "0.00",
+      "totalTributos": "0.00"
+    }
+  }
+}

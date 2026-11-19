@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades?data=2027-01-01&cClassTrib=999999",
+    "body": null
+  },
+  "status": 400,
+  "contentType": "application/problem+json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "type": "about:blank",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Código de classificação tributária desconhecido ou fora de vigência: '999999'. Informe um cClassTrib do grupo da CBS vigente na data de referência.",
+    "instance": "/api/calculadora/simples-nacional/atividades"
+  }
+}

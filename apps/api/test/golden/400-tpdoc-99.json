@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades?data=2027-01-01&tpDoc=99",
+    "body": null
+  },
+  "status": 400,
+  "contentType": "application/problem+json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "type": "about:blank",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Tipo de documento fiscal desconhecido: '99'. Não há linha na TIPO_DFE com TPDF_TIPO correspondente.",
+    "instance": "/api/calculadora/simples-nacional/atividades"
+  }
+}

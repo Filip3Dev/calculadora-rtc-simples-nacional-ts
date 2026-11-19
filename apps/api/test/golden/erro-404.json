@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-008",
+    "body": null
+  },
+  "status": 404,
+  "contentType": null,
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": null
+}

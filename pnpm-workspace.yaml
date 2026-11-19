@@ -1,0 +1,9 @@
+packages:
+  - "packages/*"
+  - "apps/*"
+
+# Allowlist de build scripts (pnpm ≥10 lê daqui, não do package.json):
+# better-sqlite3 compila o binding nativo; esbuild baixa o binário (vindo via tsx).
+onlyBuiltDependencies:
+  - better-sqlite3
+  - esbuild

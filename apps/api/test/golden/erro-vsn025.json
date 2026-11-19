@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/observabilidade/simples-nacional/erros?codigo=VSN-025",
+    "body": null
+  },
+  "status": 200,
+  "contentType": "application/json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "codigo": "VSN-025",
+    "titulo": "Parametrização de compra governamental indisponível para a data",
+    "descricao": "A data do fato gerador está fora de todas as vigências do parâmetro de transição de alíquotas de compra governamental do Simples Nacional (NT 2026.005, seção 5.3.3; arts. 372 e 473 da LC 214/2025). Como o tpEnteGov é dado da operação, a falha rejeita a operação inteira."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades/99?data=2027-01-01",
+    "body": null
+  },
+  "status": 404,
+  "contentType": null,
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": null
+}

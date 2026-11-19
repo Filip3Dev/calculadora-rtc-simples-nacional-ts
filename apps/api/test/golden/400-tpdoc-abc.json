@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/calculadora/simples-nacional/atividades?data=2027-01-01&tpDoc=abc",
+    "body": null
+  },
+  "status": 400,
+  "contentType": "application/problem+json",
+  "headers": {
+    "appVersion": null,
+    "dbVersion": null
+  },
+  "body": {
+    "type": "about:blank",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Tipo de documento fiscal inválido: 'abc'. Informe o valor numérico da coluna TPDF_TIPO da TIPO_DFE (ex.: 55, 65, 91).",
+    "instance": "/api/calculadora/simples-nacional/atividades"
+  }
+}
