@@ -1,0 +1,40 @@
+{
+  // Worker de borda da Calculadora do Simples Nacional: publica o playground
+  // como Static Assets e proxya /api/* para o container (Dockerfile da raiz).
+  "name": "calculadora-sn",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-10-08",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Domínio próprio (cria o registro DNS + certificado no deploy).
+  "routes": [{ "pattern": "sn.bitpag.xyz", "custom_domain": true }],
+
+  // run_worker_first: navegações a /api/* (ex.: /api/swagger) precisam chegar
+  // ao Worker ANTES do fallback SPA — sem isso, o Static Assets serve o
+  // index.html do playground para qualquer documento que não casa com asset.
+  "assets": {
+    "directory": "../../apps/playground/dist",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+
+  "containers": [
+    {
+      "class_name": "CalculadoraSnContainer",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "base": { "dockerfile": "../../Dockerfile" }
+      }
+    }
+  ],
+
+  "durable_objects": {
+    "bindings": [{ "name": "CONTAINER", "class_name": "CalculadoraSnContainer" }]
+  },
+
+  "exports": {
+    "CalculadoraSnContainer": { "type": "durable-object", "storage": "sqlite" }
+  },
+
+  "observability": { "enabled": true }
+}

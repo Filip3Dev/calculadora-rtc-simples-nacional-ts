@@ -13,6 +13,8 @@ async function bootstrap(): Promise<void> {
   });
 
   app.useBodyParser("json", { limit: "500kb" });
+  // Atrás do Worker Cloudflare: respeita X-Forwarded-Proto (baseURL https nas URIs de erro).
+  app.set("trust proxy", true);
   app.setGlobalPrefix("api");
   app.useGlobalFilters(new ProblemDetailFilter());
   app.useGlobalInterceptors(new HeadersInterceptor());

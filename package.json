@@ -14,7 +14,8 @@
     "db:build": "tsx packages/core/scripts/build-db.ts",
     "dev:api": "pnpm --filter @sn/api dev",
     "dev:web": "pnpm --filter @sn/playground dev",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "deploy:cloudflare": "pnpm --filter @sn/playground build && pnpm --dir deploy/edge run deploy"
   },
   "devDependencies": {
     "tsx": "^4.19.0",

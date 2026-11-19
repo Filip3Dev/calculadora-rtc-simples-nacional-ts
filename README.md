@@ -1,5 +1,10 @@
 # Calculadora de Tributos — Simples Nacional (TypeScript)
 
+[![Release](https://img.shields.io/github/v/release/Filip3Dev/calculadora-rtc-simples-nacional-ts)](https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/releases)
+[![CI](https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/actions/workflows/ci.yml)
+
+🔗 **Online**: playground + API em **[sn.bitpag.xyz](https://sn.bitpag.xyz)** · Swagger: [/api/swagger](https://sn.bitpag.xyz/api/swagger)
+
 Porte **TypeScript** da [Calculadora de Tributos do Simples Nacional](https://github.com/ReceitaFederal/calculadora-rtc-simples-nacional) da Receita Federal — API REST que calcula a **CBS** e o **IBS** (Reforma Tributária do Consumo, LC 214/2025) nas operações de contribuintes optantes pelo Simples Nacional, conforme a **NT 2026.005** (LC 123/2006 + LC 214/2025 + LC 227/2026).
 
 > [!NOTE]
@@ -68,6 +73,17 @@ Paridades deliberadamente preservadas (marcadas com `// PARITY:` no código): vI
 - Mesma API sem JVM (~90 MB de JAR → processo Node leve);
 - Testes de paridade automatizados contra respostas reais do oficial;
 - Playground incluso.
+
+## Deploy (Cloudflare)
+
+O Worker `calculadora-sn` (`deploy/edge/`) serve o playground como Static Assets e proxya `/api/*` para um Cloudflare Container rodando a API (Dockerfile da raiz; banco gerado dentro da imagem). Domínio próprio: **sn.bitpag.xyz**.
+
+```bash
+# requer Docker Desktop aberto (o wrangler builda a imagem localmente)
+pnpm deploy:cloudflare
+```
+
+> Notas: após o deploy, o container troca de imagem só no próximo cold start (inatividade de ~10 min); cada request reseta esse timer. Cold start observado: ~7 s. O wrangler deste projeto fica pinado em `4.136.1` (a linha 4.165 apresentava `Unauthorized` na fase *Preparing base for Cloudflare Containers*).
 
 ## Licença
 

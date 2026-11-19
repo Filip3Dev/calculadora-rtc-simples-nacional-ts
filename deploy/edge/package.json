@@ -1,0 +1,16 @@
+{
+  "name": "@sn/edge",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Worker Cloudflare que publica a Calculadora do Simples Nacional — Static Assets (playground) + Containers (API)",
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "wrangler": "4.136.1"
+  }
+}

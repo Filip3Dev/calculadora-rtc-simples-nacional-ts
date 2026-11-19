@@ -35,6 +35,9 @@ jobs:
       - name: Gerar banco SQLite (scripts SQL oficiais)
         run: pnpm db:build
 
+      - name: Build (core + api — typecheck da API usa dist/ do core)
+        run: pnpm build
+
       - name: Typecheck
         run: pnpm typecheck
 

@@ -1,0 +1,4 @@
+# Isola este diretório do workspace pnpm da raiz (sem este arquivo, o pnpm
+# sobe até o monorepo e instala o workspace inteiro). O wrangler roda aqui
+# como projeto próprio, fora do lockfile do monorepo.
+packages: []
