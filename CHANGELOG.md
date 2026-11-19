@@ -25,3 +25,6 @@ e o projeto adere a [Semantic Versioning](https://semver.org/lang/pt-BR/).
   Flyway do repo regime-regular; tabelas do Simples nas migrações V0047/49/50/51).
 - **Testes**: 73 unitários do core + 46 e2e golden — 45 fixtures capturadas do **JAR oficial**
   executando localmente (Docker) com o mesmo banco, comparadas integralmente (status + body).
+- **CI** (GitHub Actions): a cada push/PR — geração do banco, build, typecheck e os 119 testes.
+- **Deploy Cloudflare**: Worker `calculadora-sn` (Static Assets + Cloudflare Container) publicado
+  em **https://sn.bitpag.xyz** (`pnpm deploy:cloudflare`; wrangler pinado em 4.136.1).
