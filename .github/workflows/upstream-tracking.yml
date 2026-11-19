@@ -1,0 +1,30 @@
+name: Upstream Tracking
+
+on:
+  schedule:
+    - cron: "0 12 * * *" # diário, 09:00 BRT (12:00 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: upstream-tracking
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Vigiar repositórios oficiais
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verificar upstream (issue/PR automáticos quando houver movimento)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node .github/scripts/upstream-check.mjs

@@ -1,0 +1,16 @@
+{
+  "repos": {
+    "ReceitaFederal/calculadora-rtc-simples-nacional": {
+      "tag": "0.0.6",
+      "release": "0.0.6",
+      "sha": "c5b0f01c83",
+      "migration": null
+    },
+    "ReceitaFederal/calculadora-rtc-regime-regular": {
+      "tag": "1.6.1",
+      "release": "1.6.1",
+      "sha": "150cccbe41",
+      "migration": "V0059"
+    }
+  }
+}

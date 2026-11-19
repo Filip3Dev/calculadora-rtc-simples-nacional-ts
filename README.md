@@ -85,6 +85,11 @@ pnpm deploy:cloudflare
 
 > Notas: após o deploy, o container troca de imagem só no próximo cold start (inatividade de ~10 min); cada request reseta esse timer. Cold start observado: ~7 s. O wrangler deste projeto fica pinado em `4.136.1` (a linha 4.165 apresentava `Unauthorized` na fase *Preparing base for Cloudflare Containers*).
 
+
+## Upstream tracking
+
+O workflow [Upstream Tracking](.github/workflows/upstream-tracking.yml) roda diariamente (09:00 BRT) e vigia os repositórios oficiais da Receita Federal: quando há movimento (tag/commits/migrações Flyway novas), abre uma issue (label \`upstream\`) com o diff e os passos de sincronização — e, quando há migrações novas, um **PR automático** com os SQLs para o CI validar (banco + golden). O estado da última sincronização vive em \`.upstream/state.json\`; o probe do piloto oficial (nuvem) também reporta dados ainda não publicados no GitHub.
+
 ## Licença
 
 [MIT](LICENSE) — mantém o crédito ao projeto original (SERPRO/Receita Federal do Brasil).

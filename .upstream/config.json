@@ -1,0 +1,17 @@
+{
+  "watch": [
+    { "repo": "ReceitaFederal/calculadora-rtc-simples-nacional" },
+    {
+      "repo": "ReceitaFederal/calculadora-rtc-regime-regular",
+      "flyway": "flyway/sql/manutencao"
+    }
+  ],
+  "piloto": "https://piloto-cbs.tributos.gov.br/servico/calculadora-consumo/api/calculadora/dados-abertos/versao",
+  "syncSteps": [
+    "Migrações novas do regime-regular = dados NOVOS deste porte também (as tabelas do Simples vivem no mesmo flyway): o PR automático traz os SQLs para db/sql",
+    "CI do PR roda db:build + 73 core + 46 e2e golden — verde = pronto",
+    "Se os goldens quebrarem (carga alterada): regenerar o banco e RECAPTURAR as 45 fixtures (apps/api/test/captura-golden.mjs contra o JAR oficial rebuildado em Docker — ver README do repo)",
+    "Merge → CHANGELOG → release → pnpm deploy:cloudflare",
+    "Movimento no repo simples-nacional oficial: revisar diff e portar o que afeta contrato/cálculo (VSN-, NT)"
+  ]
+}
