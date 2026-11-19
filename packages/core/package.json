@@ -1,7 +1,7 @@
 {
   "name": "calculadora-simples-nacional-core",
-  "version": "0.2.0",
-  "description": "Motor de cálculo CBS/IBS do Simples Nacional na Reforma Tributária (LC 123/2006 + LC 214/2025, NT 2026.005) — porte TypeScript com paridade estrita com a API oficial da Receita Federal. Inclui banco SQLite pré-gerado e CLI.",
+  "version": "0.2.1",
+  "description": "Cálculo de CBS e IBS no Simples Nacional (LC 123/2006, LC 214/2025 e NT 2026.005). Porte TS da API oficial da Receita Federal, com banco embutido e CLI. Paridade verificada contra o serviço oficial.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -26,14 +26,16 @@
     "vitest": "^3.2.0"
   },
   "keywords": [
-    "receita-federal",
-    "reforma-tributaria",
     "simples-nacional",
+    "reforma-tributaria",
     "cbs",
     "ibs",
-    "lc214",
+    "receita-federal",
     "nt-2026-005",
-    "tributos"
+    "lc214",
+    "tributos",
+    "fiscal",
+    "pgdas"
   ],
   "bin": {
     "calculadora-sn": "dist/cli.js"

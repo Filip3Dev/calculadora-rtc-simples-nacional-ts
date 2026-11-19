@@ -2,6 +2,7 @@
 
 [![Release](https://img.shields.io/github/v/release/Filip3Dev/calculadora-rtc-simples-nacional-ts)](https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/releases)
 [![CI](https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/calculadora-simples-nacional-core?color=339933&label=npm%20%calculadora-simples-nacional-core)](https://www.npmjs.com/package/calculadora-simples-nacional-core)
 
 🔗 **Online**: playground + API em **[sn.bitpag.xyz](https://sn.bitpag.xyz)** · Swagger: [/api/swagger](https://sn.bitpag.xyz/api/swagger)
 
@@ -97,6 +98,18 @@ docker run -d --name sn-java-dif -p 8081:8082 -v $PWD/../calculadora-rtc-simples
 SERVER_PORT=8082 pnpm dev:api
 pnpm --filter calculadora-simples-nacional-core exec tsx ../../scripts/diferencial.mts
 ```
+
+
+## Pacote npm
+
+O motor também é distribuído como pacote npm pronto para uso (**sem servidor**), com banco de dados embutido e CLI:
+
+```bash
+npm i calculadora-simples-nacional-core
+npx calculadora-simples-nacional-core --help   # CLI do pacote
+```
+
+Detalhes e exemplos: [README do pacote](packages/core/README.md) · [npmjs.com/package/calculadora-simples-nacional-core](https://www.npmjs.com/package/calculadora-simples-nacional-core)
 
 ## Upstream tracking
 
