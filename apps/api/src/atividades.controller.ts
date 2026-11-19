@@ -21,7 +21,7 @@ import {
   ErroRespostaHttp,
   serializarAtividade,
   type OperacaoSimplesInput,
-} from "@sn/core";
+} from "calculadora-simples-nacional-core";
 import { atividades } from "./calc.provider.js";
 import { ParametroInvalidoException, ParametroObrigatorioAusenteException } from "./problem-detail.filter.js";
 

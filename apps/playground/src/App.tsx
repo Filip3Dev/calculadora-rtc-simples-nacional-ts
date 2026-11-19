@@ -3,7 +3,7 @@
  * Abas: Cálculo (observabilidade por item), Atividades (catálogo cAtivSN) e
  * Erros (catálogo VSN-).
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type EstadoItem = "CALCULADO" | "NAO_CALCULADO" | "NAO_IMPLEMENTADO" | "INCONSISTENCIA_ENTRADA" | "FALHA_TECNICA";
 
@@ -69,6 +69,12 @@ interface Atividade {
   compativelComClassTrib?: boolean;
 }
 
+/** Catálogo enxuto p/ autocomplete do cAtivSN (datalist). */
+interface AtividadeOpcao {
+  codigo: string;
+  descricao: string;
+}
+
 const COR_ESTADO: Record<EstadoItem, string> = {
   CALCULADO: "ok",
   NAO_CALCULADO: "aviso",
@@ -123,6 +129,23 @@ export default function App() {
   const [resposta, setResposta] = useState<RespostaCalculo | null>(null);
   const [problema, setProblema] = useState<Problem | null>(null);
   const [carregando, setCarregando] = useState(false);
+
+  // Autocomplete de cAtivSN: catálogo oficial vigente na data do fato gerador
+  // (datalist — digitação livre continua válida; código fora do catálogo → NAO_CALCULADO).
+  const [opcoesAtividade, setOpcoesAtividade] = useState<AtividadeOpcao[]>([]);
+  useEffect(() => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(data)) return;
+    let vivo = true;
+    fetch(`/api/calculadora/simples-nacional/atividades?data=${data}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((lista: Atividade[]) => {
+        if (vivo) setOpcoesAtividade(lista.map((a) => ({ codigo: a.codigo, descricao: a.descricao })));
+      })
+      .catch(() => setOpcoesAtividade([]));
+    return () => {
+      vivo = false;
+    };
+  }, [data]);
 
   async function calcular(): Promise<void> {
     setCarregando(true);
@@ -227,6 +250,13 @@ export default function App() {
 
   return (
     <main>
+      <datalist id="cativsn-opcoes">
+        {opcoesAtividade.map((a) => (
+          <option key={a.codigo} value={a.codigo}>
+            {a.descricao}
+          </option>
+        ))}
+      </datalist>
       <header>
         <h1>Calculadora de Tributos — Simples Nacional</h1>
         <p className="sub">CBS e IBS na LC 214/2025 · NT 2026.005 · porte TypeScript com paridade estrita</p>
@@ -253,7 +283,7 @@ export default function App() {
               <legend>Item {idx + 1}</legend>
               <div className="grid-item">
                 <label>nº<input value={item.numero} onChange={(e) => setItens(itens.map((x, i) => i === idx ? { ...x, numero: e.target.value } : x))} /></label>
-                <label>cAtivSN<input value={item.cAtivSN} onChange={(e) => setItens(itens.map((x, i) => i === idx ? { ...x, cAtivSN: e.target.value } : x))} /></label>
+                <label>cAtivSN<input list="cativsn-opcoes" value={item.cAtivSN} onChange={(e) => setItens(itens.map((x, i) => i === idx ? { ...x, cAtivSN: e.target.value } : x))} /></label>
                 <label>cClassTrib<input value={item.cClassTrib} onChange={(e) => setItens(itens.map((x, i) => i === idx ? { ...x, cClassTrib: e.target.value } : x))} /></label>
                 <label>baseCalculo<input value={item.baseCalculo} onChange={(e) => setItens(itens.map((x, i) => i === idx ? { ...x, baseCalculo: e.target.value } : x))} /></label>
                 <label>vIS<input value={item.valorImpostoSeletivo} onChange={(e) => setItens(itens.map((x, i) => i === idx ? { ...x, valorImpostoSeletivo: e.target.value } : x))} /></label>

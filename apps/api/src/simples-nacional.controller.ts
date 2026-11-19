@@ -92,7 +92,7 @@ import {
   serializarObservabilidade,
   type ErroDescricaoSimples,
   type OperacaoSimplesInput,
-} from "@sn/core";
+} from "calculadora-simples-nacional-core";
 import { observabilidade } from "./calc.provider.js";
 
 /** scheme://host sem porta e sem path — como UriComponents.getHost() do Java. */

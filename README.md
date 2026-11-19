@@ -86,6 +86,18 @@ pnpm deploy:cloudflare
 > Notas: após o deploy, o container troca de imagem só no próximo cold start (inatividade de ~10 min); cada request reseta esse timer. Cold start observado: ~7 s. O wrangler deste projeto fica pinado em `4.136.1` (a linha 4.165 apresentava `Unauthorized` na fase *Preparing base for Cloudflare Containers*).
 
 
+
+## Teste Diferencial (Java oficial × TS)
+
+Além dos golden tests (46 e2e contra respostas capturadas), o **diferencial ao vivo** dispara os mesmos requests na API Java oficial e na TS e compara campo a campo: **48/48 idênticos** (29 cálculos das fixtures + 10 variações extras — decimais exóticos, compra governamental 2029/2033/2050, espaços, itens mistos — + 9 consultas GET).
+
+```bash
+# Java oficial na :8081 (Docker; banco em calculadora/db/calculadora-pro.db) e TS na :8082
+docker run -d --name sn-java-dif -p 8081:8082 -v $PWD/../calculadora-rtc-simples-nacional:/work -w /work eclipse-temurin:21-jre java -Dspring.profiles.active=offline -jar target/api-simples-nacional.jar
+SERVER_PORT=8082 pnpm dev:api
+pnpm --filter calculadora-simples-nacional-core exec tsx ../../scripts/diferencial.mts
+```
+
 ## Upstream tracking
 
 O workflow [Upstream Tracking](.github/workflows/upstream-tracking.yml) roda diariamente (09:00 BRT) e vigia os repositórios oficiais da Receita Federal: quando há movimento (tag/commits/migrações Flyway novas), abre uma issue (label `upstream`) com o diff e os passos de sincronização — e, quando há migrações novas, um **PR automático** com os SQLs para o CI validar (banco + golden). O estado da última sincronização vive em `.upstream/state.json`; o probe do piloto oficial (nuvem) também reporta dados ainda não publicados no GitHub.

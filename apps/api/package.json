@@ -1,7 +1,7 @@
 {
   "name": "@sn/api",
   "version": "0.1.0",
-  "description": "API REST da Calculadora de Tributos do Simples Nacional (LC 123/2006, LC 214/2025, NT 2026.005) — NestJS sobre o motor @sn/core",
+  "description": "API REST da Calculadora de Tributos do Simples Nacional (LC 123/2006, LC 214/2025, NT 2026.005) — NestJS sobre o motor calculadora-simples-nacional-core",
   "private": true,
   "type": "module",
   "main": "dist/main.js",
@@ -17,7 +17,7 @@
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/swagger": "^11.0.0",
-    "@sn/core": "workspace:*",
+    "calculadora-simples-nacional-core": "workspace:*",
     "better-sqlite3": "^12.0.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.0"

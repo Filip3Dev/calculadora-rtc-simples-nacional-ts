@@ -1,7 +1,7 @@
 {
-  "name": "@sn/core",
-  "version": "0.1.0",
-  "description": "Motor de cálculo CBS/IBS do Simples Nacional (LC 123/2006, LC 214/2025, NT 2026.005) — porte TypeScript, paridade estrita com a API oficial",
+  "name": "calculadora-simples-nacional-core",
+  "version": "0.2.0",
+  "description": "Motor de cálculo CBS/IBS do Simples Nacional na Reforma Tributária (LC 123/2006 + LC 214/2025, NT 2026.005) — porte TypeScript com paridade estrita com a API oficial da Receita Federal. Inclui banco SQLite pré-gerado e CLI.",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -12,7 +12,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepack": "node scripts/prepack-db.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^12.0.0",
@@ -23,5 +24,37 @@
     "@types/node": "^24.0.0",
     "typescript": "^5.9.0",
     "vitest": "^3.2.0"
+  },
+  "keywords": [
+    "receita-federal",
+    "reforma-tributaria",
+    "simples-nacional",
+    "cbs",
+    "ibs",
+    "lc214",
+    "nt-2026-005",
+    "tributos"
+  ],
+  "bin": {
+    "calculadora-sn": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "db",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts#readme",
+  "bugs": {
+    "url": "https://github.com/Filip3Dev/calculadora-rtc-simples-nacional-ts/issues"
+  },
+  "author": "Filip3Dev",
+  "engines": {
+    "node": ">=22"
   }
 }

@@ -4,6 +4,18 @@ Todas as mudanças notáveis deste projeto serão documentadas aqui.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e o projeto adere a [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
+## [0.2.0] — 2026-11-19
+
+### Adicionado
+
+- **Teste diferencial ao vivo** (`scripts/diferencial.mts`): mesmos requests na API Java
+  oficial e na TS, comparação campo a campo — **48/48 idênticos** (29 cálculos das golden
+  + 10 extras incl. decimais exóticos/compra governamental 2029-2050/itens mistos + 9 GETs).
+- **Pacote npm `calculadora-simples-nacional-core`**: banco embutido via prepack + **CLI
+  `calculadora-sn`** (observabilidade com ProblemDetail 422 fiel).
+- **Playground**: autocomplete de cAtivSN (catálogo oficial por data, datalist).
+- `/versao`: versão lida do package.json em runtime (no container não há npm_package_version).
+
 ## [0.1.1] — 2026-11-19
 
 ### Adicionado

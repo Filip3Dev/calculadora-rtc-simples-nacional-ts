@@ -3,13 +3,14 @@
  * beans Spring do Java — SQLite somente leitura, aberto uma única vez).
  */
 import path from "node:path";
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import {
   abrirBanco,
   AtividadeSimplesService,
   SimplesNacionalObservabilidadeService,
   type RepositoriosSimples,
-} from "@sn/core";
+} from "calculadora-simples-nacional-core";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 const DB_PATH = process.env.SN_DB_PATH ?? path.join(ROOT, "db", "calculadora.db");
@@ -49,7 +50,20 @@ export function versaoBaseDados(): { numeroVersao: string; data: string; descric
   };
 }
 
-/** Versão da aplicação (package.json) para X-CALC-APP-VERSION / /versao. */
+/** Versão da aplicação para X-CALC-APP-VERSION / /versao.
+ * Lida do package.json em RUNTIME — no container roda `node dist/main.js`
+ * (sem pnpm), então npm_package_version não existe e um fallback fixo faria
+ * o /versao mentir em produção (dist/main.js → ../package.json = apps/api). */
+const APP_VERSION: string = (() => {
+  try {
+    return JSON.parse(
+      readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+    ).version as string;
+  } catch {
+    return process.env.npm_package_version ?? "0.0.0";
+  }
+})();
+
 export function versaoAplicacao(): string {
-  return process.env.npm_package_version ?? "0.1.0";
+  return APP_VERSION;
 }

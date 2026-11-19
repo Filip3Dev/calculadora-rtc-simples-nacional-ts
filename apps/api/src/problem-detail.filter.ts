@@ -21,7 +21,7 @@ import {
   HttpException,
 } from "@nestjs/common";
 import type { Request, Response } from "express";
-import { ErrosCalculoException, ErroRespostaHttp } from "@sn/core";
+import { ErrosCalculoException, ErroRespostaHttp } from "calculadora-simples-nacional-core";
 
 /** Exceções de parâmetro de query (equivalem aos handlers do Spring). */
 export class ParametroObrigatorioAusenteException extends Error {

@@ -1,7 +1,7 @@
 {
   "name": "calculadora-rtc-simples-nacional-ts",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Porte TypeScript da Calculadora de Tributos do Simples Nacional (LC 123/2006, LC 214/2025, NT 2026.005) — API NestJS + playground, paridade estrita com a API oficial da Receita Federal",
   "license": "MIT",
   "engines": {
